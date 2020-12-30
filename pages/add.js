@@ -1,6 +1,14 @@
 import Link from "next/link";
 import Layout from "../components/layout";
-import { Container, Box, Button } from "@chakra-ui/react";
+import { Container, Box, Button, Input, Stack, Select } from "@chakra-ui/react";
+import {
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  NumberIncrementStepper,
+  NumberDecrementStepper,
+} from "@chakra-ui/react";
+
 export default function add() {
   const test = () => {
     fetch("/api/overview")
@@ -10,11 +18,19 @@ export default function add() {
 
   return (
     <Layout>
-      <Container maxW="50%" centerContent>
-        <Box padding="5" bg="gray.100" maxW="50%">
-          Here you should be able to add stuff
-        </Box>
-      </Container>
+      <Stack margin="auto" width="70%" border="black" p="20px">
+        <Select placeholder="Select payer">
+          <option value="option1">Calle</option>
+          <option value="option2">Linus</option>
+        </Select>
+        <NumberInput>
+          <NumberInputField />
+          <NumberInputStepper>
+            <NumberIncrementStepper />
+            <NumberDecrementStepper />
+          </NumberInputStepper>
+        </NumberInput>
+      </Stack>
       <Button onClick={test}>button</Button>
     </Layout>
   );
