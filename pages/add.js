@@ -8,7 +8,6 @@ export default function add() {
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
     fetch("http://localhost:3000/api/addToExpenses", {
       headers: {
         Accept: "application/json",
