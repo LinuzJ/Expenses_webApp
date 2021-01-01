@@ -1,37 +1,53 @@
 import Link from "next/link";
 import Layout from "../components/layout";
 import { Container, Box, Button, Input, Stack, Select } from "@chakra-ui/react";
-import {
-  NumberInput,
-  NumberInputField,
-  NumberInputStepper,
-  NumberIncrementStepper,
-  NumberDecrementStepper,
-} from "@chakra-ui/react";
+import React from "react";
+import { useForm } from "react-hook-form";
 
 export default function add() {
-  const test = () => {
-    fetch("/api/overview")
-      .then((respone) => respone.json())
-      .then((result) => console.log(result));
+  const { register, handleSubmit, errors } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+    fetch("http://localhost:3000/api/addToExpenses", {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      method: "post",
+      body: JSON.stringify(data),
+    });
   };
 
   return (
     <Layout>
-      <Stack margin="auto" width="70%" border="black" p="20px">
-        <Select placeholder="Select payer">
-          <option value="option1">Calle</option>
-          <option value="option2">Linus</option>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        margin="auto"
+        width="70%"
+        border="black"
+        p="20px"
+      >
+        <Select
+          placeholder="Select payer"
+          type="text"
+          name="name"
+          ref={register({ required: true })}
+        >
+          <option value="Calle">Calle</option>
+          <option value="Linus">Linus</option>
         </Select>
-        <NumberInput>
-          <NumberInputField />
-          <NumberInputStepper>
-            <NumberIncrementStepper />
-            <NumberDecrementStepper />
-          </NumberInputStepper>
-        </NumberInput>
-      </Stack>
-      <Button onClick={test}>button</Button>
+        <input
+          type="number"
+          placeholder="Amount"
+          name="amount"
+          ref={register({
+            required: "You have to enter an amount! You dumdum",
+          })}
+        />
+        {errors.amount && <p>{errors.amount.message}</p>}
+        <input type="submit" />
+      </form>
     </Layout>
   );
 }
