@@ -14,7 +14,7 @@ export default function add() {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      method: "post",
+      method: "POST",
       body: JSON.stringify(data),
     });
   };
@@ -31,7 +31,7 @@ export default function add() {
         <Select
           placeholder="Select payer"
           type="text"
-          name="name"
+          name="user"
           ref={register({ required: true })}
         >
           <option value="Calle">Calle</option>
@@ -39,10 +39,10 @@ export default function add() {
         </Select>
         <input
           type="number"
-          placeholder="Amount"
+          placeholder="Enter amount"
           name="amount"
           ref={register({
-            required: "You have to enter an amount! You dumdum",
+            required: "You have to enter an amount!",
           })}
         />
         {errors.amount && <p>{errors.amount.message}</p>}
