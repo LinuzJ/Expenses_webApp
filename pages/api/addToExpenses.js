@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   const amount = req.body.amount;
 
   const db = await open({ filename: "expenses.db", driver: sqlite3.Database });
-  const add = await db.all(
+  await db.run(
     "INSERT INTO expenses (user, amount) VALUES('".concat(
       user,
       "', ",
@@ -14,5 +14,5 @@ export default async function handler(req, res) {
       ")"
     )
   );
-  res.json(add);
+  res.end();
 }

@@ -1,9 +1,10 @@
 import Link from "next/link";
 import Layout from "../components/layout";
 import { Container, Box, Button, Input, Stack, Select } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-
+import AlertMessageSuccess from "../components/AlertMessage";
+import AlertMessageFail from "../components/AlertMessageFail";
 export default function add() {
   const { register, handleSubmit, errors } = useForm();
 
@@ -15,8 +16,19 @@ export default function add() {
       },
       method: "POST",
       body: JSON.stringify(data),
+    }).then((result) => {
+      const newResult = result.ok ? (
+        <AlertMessageSuccess
+          resultChanger={setResultOfPost}
+        ></AlertMessageSuccess>
+      ) : (
+        <AlertMessageFail resultChanger={setResultOfPost}></AlertMessageFail>
+      );
+      setResultOfPost(newResult);
     });
   };
+
+  const [resultOfPost, setResultOfPost] = useState("");
 
   return (
     <Layout>
@@ -44,7 +56,9 @@ export default function add() {
             required: "You have to enter an amount!",
           })}
         />
+        {resultOfPost !== "" && resultOfPost}
         {errors.amount && <p>{errors.amount.message}</p>}
+
         <input type="submit" />
       </form>
     </Layout>
