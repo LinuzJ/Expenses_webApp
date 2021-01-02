@@ -7,12 +7,8 @@ export default async function handler(req, res) {
 
   const db = await open({ filename: "expenses.db", driver: sqlite3.Database });
   await db.run(
-    "INSERT INTO expenses (user, amount) VALUES('".concat(
-      user,
-      "', ",
-      amount,
-      ")"
-    )
+    "INSERT INTO expenses (user, amount) VALUES(?, ?)",
+    (user, amount)
   );
   res.end();
 }
