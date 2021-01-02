@@ -4,12 +4,14 @@ import {
   AlertTitle,
   AlertDescription,
   CloseButton,
+  Flex,
+  Button,
 } from "@chakra-ui/react";
 const AlertMessageFail = (props) => {
   return (
     <Flex flexDirection="column" alignItems="center" justifyContent="center">
       <Alert
-        status="fail"
+        status="error"
         variant="subtle"
         flexDirection="column"
         alignItems="center"
