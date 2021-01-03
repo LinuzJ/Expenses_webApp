@@ -3,7 +3,7 @@ import Layout from "../components/layout";
 import { Container, Box, Center } from "@chakra-ui/react";
 import { SimpleGrid } from "@chakra-ui/react";
 import Bar from "../components/bar";
-import MySlider from "../components/slider";
+
 import {
   Stat,
   StatLabel,
@@ -93,9 +93,6 @@ export default function Home(props) {
           Calle
         </Center>
       </SimpleGrid>
-      <Container p="40px" width="1000px" bg="#B8860B">
-        <MySlider />
-      </Container>
     </Layout>
   );
 }

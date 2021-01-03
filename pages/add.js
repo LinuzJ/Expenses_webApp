@@ -50,6 +50,14 @@ export default function add() {
           <option value="Linus">Linus</option>
         </Select>
         <input
+          type="text"
+          placeholder="Description"
+          name="what"
+          ref={register({
+            required: "Tell what the expense is!",
+          })}
+        />
+        <input
           type="number"
           placeholder="Enter amount"
           name="amount"
@@ -59,6 +67,7 @@ export default function add() {
         />
         {resultOfPost !== "" && resultOfPost}
         {errors.amount && <p>{errors.amount.message}</p>}
+        {errors.what && <p>{errors.what.message}</p>}
 
         <input type="submit" />
       </form>
