@@ -3,7 +3,7 @@ CREATE TABLE expenses (
     user text,
     what text,
     amount int,
-    created_at timestamp   DEFAULT CURRENT_TIMESTAMP,
-    deleted boolean
+    deleted boolean,
+    created_at timestamp   DEFAULT CURRENT_TIMESTAMP
 
 );
