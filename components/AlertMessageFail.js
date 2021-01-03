@@ -27,7 +27,7 @@ const AlertMessageFail = (props) => {
           Please try again. To close this window please click the button below
         </AlertDescription>
       </Alert>
-      <Button onClick={console.log("test")}>Close</Button>
+      <Button onClick={props.resultChanger}>Close</Button>
     </Flex>
   );
 };

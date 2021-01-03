@@ -28,7 +28,7 @@ const AlertMessageSuccess = (props) => {
           the button below
         </AlertDescription>
       </Alert>
-      <Button onClick={console.log("test")}>Close</Button>
+      <Button onClick={props.resultChanger}>Close</Button>
     </Flex>
   );
 };
