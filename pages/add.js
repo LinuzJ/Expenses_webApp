@@ -9,6 +9,7 @@ import {
   Input,
   Stack,
   Select,
+  Divider,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -44,7 +45,12 @@ export default function add() {
 
   return (
     <Layout>
-      <Flex flexDirection="column" alignItems="center" justifyContent="center">
+      <Flex
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        p="20px"
+      >
         <form
           onSubmit={handleSubmit(onSubmit)}
           margin="auto"
@@ -83,6 +89,7 @@ export default function add() {
 
           <input type="submit" />
         </form>
+        <Divider p="20px" m="20px" />
         <DeleteForm></DeleteForm>
       </Flex>
     </Layout>

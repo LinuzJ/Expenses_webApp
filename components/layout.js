@@ -1,7 +1,7 @@
 // components/Layout.js
 
 import NavBar from "./NavBar";
-
+import Flex from "@chakra-ui/react";
 import navButtons from "../config/buttons";
 
 const Layout = (props) => {

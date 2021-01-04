@@ -1,7 +1,6 @@
 import FirstPost from "./list";
 import Layout from "../components/layout";
-import { Container, Box, Center } from "@chakra-ui/react";
-import { SimpleGrid } from "@chakra-ui/react";
+import { Container, Box, Center, Flex } from "@chakra-ui/react";
 import Bar from "../components/bar";
 
 import {
@@ -56,16 +55,7 @@ export default function Home(props) {
   );
   return (
     <Layout>
-      <SimpleGrid columns="3" spacing="10%" backgroundColor="#A9A9A9">
-        <Center
-          bg="Tomato"
-          height="300px"
-          width="300px"
-          borderRadius="100%"
-          fontSize="100px"
-        >
-          Linus
-        </Center>
+      <Flex flexDirection="column" alignItems="center" justifyContent="center">
         <StatGroup width="600px" heigth="400px">
           <Stat>
             <StatLabel fontSize="25px">Total Expenses</StatLabel>
@@ -83,16 +73,7 @@ export default function Home(props) {
             </StatHelpText>
           </Stat>
         </StatGroup>
-        <Center
-          bg="Tomato"
-          height="300px"
-          width="300px"
-          borderRadius="100%"
-          fontSize="100px"
-        >
-          Calle
-        </Center>
-      </SimpleGrid>
+      </Flex>
     </Layout>
   );
 }
