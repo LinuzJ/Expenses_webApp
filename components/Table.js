@@ -18,9 +18,7 @@ export default function Table({ columns, data }) {
     },
     useSortBy
   );
-  // We don't want to render all 2000 rows for this example, so cap
-  // it at 20 for this use case
-  const firstPageRows = rows.slice(0, 20);
+  const firstPageRows = rows.slice(0, 100);
 
   // Render the UI for your table
   return (
@@ -45,6 +43,7 @@ export default function Table({ columns, data }) {
                   borderBottom={1}
                   borderBottomStyle="solid"
                   background="#f2f2f2"
+                  width="200px"
                   {...column.getHeaderProps(column.getSortByToggleProps())}
                 >
                   {column.render("Header")}
@@ -81,7 +80,7 @@ export default function Table({ columns, data }) {
           })}
         </Box>
       </Box>
-      <Box>Showing the first 20 results of {rows.length} rows</Box>
+      <Box>Showing the first 100 results of {rows.length} rows</Box>
     </>
   );
 }

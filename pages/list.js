@@ -20,10 +20,6 @@ export default function list(props) {
   const columns = React.useMemo(
     () => [
       {
-        Header: "ID",
-        accessor: "id",
-      },
-      {
         Header: "Person",
         accessor: "user",
       },

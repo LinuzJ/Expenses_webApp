@@ -50,6 +50,10 @@ export default function add() {
         p="20px"
       >
         <form
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="center"
           onSubmit={handleSubmit(onSubmit)}
           margin="auto"
           width="70%"
@@ -84,8 +88,8 @@ export default function add() {
           {errors.amount && <p>{errors.amount.message}</p>}
           {errors.what && <p>{errors.what.message}</p>}
           <input type="submit" />
-          {resultOfPost !== "" && resultOfPost}
         </form>
+        {resultOfPost !== "" && resultOfPost}
         <Divider p="20px" m="20px" />
         <DeleteForm></DeleteForm>
       </Flex>
