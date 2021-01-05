@@ -9,7 +9,12 @@ import {
 } from "@chakra-ui/react";
 const AlertMessageFail = (props) => {
   return (
-    <Flex flexDirection="column" alignItems="center" justifyContent="center">
+    <Flex
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
+      p="20px"
+    >
       <Alert
         status="error"
         variant="subtle"
@@ -27,7 +32,7 @@ const AlertMessageFail = (props) => {
           Please try again. To close this window please click the button below
         </AlertDescription>
       </Alert>
-      <Button onClick={props.resultChanger}>Close</Button>
+      <Button onClick={() => props.setResultOfPost("")}>Close</Button>
     </Flex>
   );
 };

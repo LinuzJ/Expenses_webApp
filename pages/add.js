@@ -30,12 +30,10 @@ export default function add() {
     }).then((result) => {
       const newResult = result.ok ? (
         <AlertMessageSuccess
-          resultChanger={setResultOfPost("")}
+          setResultOfPost={setResultOfPost}
         ></AlertMessageSuccess>
       ) : (
-        <AlertMessageFail
-          resultChanger={setResultOfPost("")}
-        ></AlertMessageFail>
+        <AlertMessageFail setResultOfPost={setResultOfPost}></AlertMessageFail>
       );
       setResultOfPost(newResult);
     });
@@ -83,11 +81,10 @@ export default function add() {
               required: "You have to enter an amount!",
             })}
           />
-          {resultOfPost !== "" && resultOfPost}
           {errors.amount && <p>{errors.amount.message}</p>}
           {errors.what && <p>{errors.what.message}</p>}
-
           <input type="submit" />
+          {resultOfPost !== "" && resultOfPost}
         </form>
         <Divider p="20px" m="20px" />
         <DeleteForm></DeleteForm>

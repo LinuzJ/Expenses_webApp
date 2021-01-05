@@ -3,7 +3,8 @@ import { withRouter } from "next/router";
 import { Button, ButtonGroup } from "@chakra-ui/react";
 
 const NavButton = (props) => {
-  let backgroundColor = props.router.pathname === props.path ? "blue" : "black";
+  let backgroundColor =
+    props.router.pathname === props.path ? "#ffffe1" : " #ffffa3";
 
   return (
     <Link href={props.path}>
@@ -12,13 +13,8 @@ const NavButton = (props) => {
           props.router.pathname === props.path ? "active" : ""
         }`}
         style={{
-          // display: "flex",
-          // flexDirection: "row",
-          // justifyContent: "space-around",
-          // alignItems: "center",
-
-          // height: "100%",
           background: backgroundColor,
+          color: "black",
         }}
       >
         {props.label}

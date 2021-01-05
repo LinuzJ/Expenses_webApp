@@ -9,7 +9,12 @@ import {
 } from "@chakra-ui/react";
 const AlertMessageSuccess = (props) => {
   return (
-    <Flex flexDirection="column" alignItems="center" justifyContent="center">
+    <Flex
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
+      p="20px"
+    >
       <Alert
         status="success"
         variant="subtle"
@@ -28,7 +33,7 @@ const AlertMessageSuccess = (props) => {
           the button below
         </AlertDescription>
       </Alert>
-      <Button onClick={props.resultChanger}>Close</Button>
+      <Button onClick={() => props.setResultOfPost("")}>Close</Button>
     </Flex>
   );
 };
