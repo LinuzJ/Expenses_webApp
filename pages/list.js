@@ -28,7 +28,7 @@ export default function list(props) {
         accessor: "what",
       },
       {
-        Header: "Amount",
+        Header: "Amount (€)",
         accessor: "amount",
       },
       {

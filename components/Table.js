@@ -1,6 +1,6 @@
 import React from "react";
 import { useTable, useSortBy } from "react-table";
-import { Box, ChakraProvider, CSSReset } from "@chakra-ui/react";
+import { Box, ChakraProvider, CSSReset, CloseButton } from "@chakra-ui/react";
 import theme from "@chakra-ui/theme";
 
 export default function Table({ columns, data }) {
@@ -34,7 +34,16 @@ export default function Table({ columns, data }) {
       >
         <Box as="thead">
           {headerGroups.map((headerGroup) => (
-            <Box as="tr" {...headerGroup.getHeaderGroupProps()}>
+            <Box
+              as="tr"
+              m={0}
+              p="0.5rem"
+              borderBottom={1}
+              borderBottomStyle="solid"
+              background="#f2f2f2"
+              width="200px"
+              {...headerGroup.getHeaderGroupProps()}
+            >
               {headerGroup.headers.map((column) => (
                 <Box
                   as="th"
@@ -52,6 +61,17 @@ export default function Table({ columns, data }) {
                   </Box>
                 </Box>
               ))}
+              <Box
+                m={0}
+                fontWeight="bold"
+                p="0.5rem"
+                background="#f2f2f2"
+                width="200px"
+                display="flex"
+                justifyContent="center"
+              >
+                Delete
+              </Box>
             </Box>
           ))}
         </Box>
@@ -75,6 +95,17 @@ export default function Table({ columns, data }) {
                     </Box>
                   );
                 })}
+                <Box
+                  display="flex"
+                  justifyContent="center"
+                  m={0}
+                  p="0.5rem"
+                  borderBottom={1}
+                  borderBottomStyle="solid"
+                  borderColor="#e6e6e6"
+                >
+                  <CloseButton></CloseButton>
+                </Box>
               </Box>
             );
           })}
