@@ -45,6 +45,7 @@ export default function list(props) {
     rows,
     prepareRow,
   } = useTable({ columns, data });
+
   return (
     <Layout>
       <Flex flexDirection="column" alignItems="center" justifyContent="center">

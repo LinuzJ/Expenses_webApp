@@ -56,15 +56,15 @@ export default function Home(props) {
   return (
     <Layout>
       <Flex flexDirection="column" alignItems="center" justifyContent="center">
-        <StatGroup width="600px" heigth="400px">
-          <Stat>
-            <StatLabel fontSize="25px">Total Expenses</StatLabel>
-            <StatNumber fontSize="60px">{totalExpenses}€</StatNumber>
+        <StatGroup>
+          <Stat m="25px">
+            <StatLabel fontSize="40px">Total Expenses</StatLabel>
+            <StatNumber fontSize="150px">{totalExpenses}€</StatNumber>
           </Stat>
 
-          <Stat>
-            <StatLabel fontSize="20px">Tilannekuva :D</StatLabel>
-            <StatNumber fontSize="30px">
+          <Stat m="25px">
+            <StatLabel fontSize="30px">Tilannekuva :D</StatLabel>
+            <StatNumber fontSize="50px">
               {notLeader} owes {leader}
             </StatNumber>
             <StatHelpText>

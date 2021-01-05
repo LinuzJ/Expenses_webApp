@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Layout from "../components/layout";
-import DeleteForm from "../components/deleteForm";
 import {
   Flex,
   Container,
@@ -91,7 +90,6 @@ export default function add() {
         </form>
         {resultOfPost !== "" && resultOfPost}
         <Divider p="20px" m="20px" />
-        <DeleteForm></DeleteForm>
       </Flex>
     </Layout>
   );

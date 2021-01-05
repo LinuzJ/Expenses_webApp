@@ -1,7 +1,11 @@
 import React from "react";
+import DeleteButton from "../components/deleteButton";
 import { useTable, useSortBy } from "react-table";
 import { Box, ChakraProvider, CSSReset, CloseButton } from "@chakra-ui/react";
 import theme from "@chakra-ui/theme";
+const test = () => {
+  console.log("test");
+};
 
 export default function Table({ columns, data }) {
   // Use the state and functions returned from useTable to build your UI
@@ -20,7 +24,24 @@ export default function Table({ columns, data }) {
   );
   const firstPageRows = rows.slice(0, 100);
 
-  // Render the UI for your table
+  //   fetch("http://localhost:3000/api/addToExpenses", {
+  //     headers: {
+  //       Accept: "application/json",
+  //       "Content-Type": "application/json",
+  //     },
+  //     method: "POST",
+  //     body: JSON.stringify(data),
+  //   }).then((result) => {
+  //     const newResult = result.ok ? (
+  //       <AlertMessageSuccess
+  //         setResultOfPost={setResultOfPost}
+  //       ></AlertMessageSuccess>
+  //     ) : (
+  //       <AlertMessageFail setResultOfPost={setResultOfPost}></AlertMessageFail>
+  //     );
+  //     setResultOfPost(newResult);
+  //   });
+
   return (
     <>
       <Box
@@ -104,7 +125,7 @@ export default function Table({ columns, data }) {
                   borderBottomStyle="solid"
                   borderColor="#e6e6e6"
                 >
-                  <CloseButton></CloseButton>
+                  <DeleteButton></DeleteButton>
                 </Box>
               </Box>
             );
