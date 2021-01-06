@@ -5,7 +5,6 @@ import { Box, ChakraProvider, CSSReset, CloseButton } from "@chakra-ui/react";
 import theme from "@chakra-ui/theme";
 
 export default function Table({ columns, data }) {
-  // Use the state and functions returned from useTable to build your UI
   const {
     getTableProps,
     getTableBodyProps,
@@ -104,7 +103,7 @@ export default function Table({ columns, data }) {
                   borderBottomStyle="solid"
                   borderColor="#e6e6e6"
                 >
-                  <DeleteButton rowData={row.id}></DeleteButton>
+                  <DeleteButton rowData={parseInt(row.id) + 1}></DeleteButton>
                 </Box>
               </Box>
             );

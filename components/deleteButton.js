@@ -4,7 +4,6 @@ import React, { useState } from "react";
 
 const DeleteButton = (props) => {
   const id = { id: props.rowData };
-
   const handleClick = () => {
     fetch("http://localhost:3000/api/delete", {
       headers: {

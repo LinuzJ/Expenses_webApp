@@ -17,7 +17,7 @@ export async function getServerSideProps(context) {
 
 export default function list(props) {
   console.log(props.data);
-  const data = props.data.filter((dataset) => dataset.deleted === 0);
+  const data = props.data.filter((dataset) => !dataset.deleted);
 
   const columns = [
     {
@@ -37,14 +37,6 @@ export default function list(props) {
       accessor: "created_at",
     },
   ];
-
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    rows,
-    prepareRow,
-  } = useTable({ columns, data });
 
   return (
     <Layout>
