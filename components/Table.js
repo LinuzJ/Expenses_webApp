@@ -78,7 +78,6 @@ export default function Table(props) {
         <Box as="tbody" {...getTableBodyProps()}>
           {firstPageRows.map((row, i) => {
             prepareRow(row);
-            console.log(row);
             return (
               <Box as="tr" {...row.getRowProps()}>
                 {row.cells.map((cell) => {
@@ -90,7 +89,6 @@ export default function Table(props) {
                       borderBottom={1}
                       borderBottomStyle="solid"
                       borderColor="#e6e6e6"
-                      {...cell.getCellProps()}
                     >
                       {cell.value}
                     </Box>

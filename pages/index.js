@@ -15,7 +15,7 @@ import {
 export async function getServerSideProps(context) {
   const response = await fetch(
     "http://localhost:3000/api/overview"
-  ).then((respone) => respone.json());
+  ).then((response) => response.json());
 
   return {
     props: {
