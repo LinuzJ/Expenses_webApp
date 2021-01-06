@@ -4,7 +4,8 @@ import { useTable, useSortBy } from "react-table";
 import { Box, ChakraProvider, CSSReset, CloseButton } from "@chakra-ui/react";
 import theme from "@chakra-ui/theme";
 
-export default function Table({ columns, data }) {
+export default function Table(props) {
+  const { columns, data } = props;
   const {
     getTableProps,
     getTableBodyProps,
@@ -77,6 +78,7 @@ export default function Table({ columns, data }) {
         <Box as="tbody" {...getTableBodyProps()}>
           {firstPageRows.map((row, i) => {
             prepareRow(row);
+            console.log(row);
             return (
               <Box as="tr" {...row.getRowProps()}>
                 {row.cells.map((cell) => {
@@ -90,7 +92,7 @@ export default function Table({ columns, data }) {
                       borderColor="#e6e6e6"
                       {...cell.getCellProps()}
                     >
-                      {cell.render("Cell")}
+                      {cell.value}
                     </Box>
                   );
                 })}
@@ -103,7 +105,10 @@ export default function Table({ columns, data }) {
                   borderBottomStyle="solid"
                   borderColor="#e6e6e6"
                 >
-                  <DeleteButton rowData={parseInt(row.id) + 1}></DeleteButton>
+                  <DeleteButton
+                    rowData={row.original.id}
+                    refreshData={props.refreshData}
+                  ></DeleteButton>
                 </Box>
               </Box>
             );

@@ -13,7 +13,7 @@ const DeleteButton = (props) => {
       method: "POST",
       body: JSON.stringify(id),
     }).then((result) => {
-      const newResult = result.ok ? console.log("hey") : console.log("ney");
+      const newResult = result.ok ? props.refreshData() : console.log("ney");
     });
   };
   return <CloseButton onClick={handleClick}></CloseButton>;

@@ -2,6 +2,7 @@ import Link from "next/link";
 import Layout from "../components/layout";
 import Table from "../components/Table";
 import { Flex, Container, Box } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 import { useTable } from "react-table";
 export async function getServerSideProps(context) {
   const response = await fetch(
@@ -16,7 +17,12 @@ export async function getServerSideProps(context) {
 }
 
 export default function list(props) {
-  console.log(props.data);
+  const router = useRouter();
+
+  const refreshData = () => {
+    router.replace(router.asPath);
+  };
+
   const data = props.data.filter((dataset) => !dataset.deleted);
 
   const columns = [
@@ -41,7 +47,7 @@ export default function list(props) {
   return (
     <Layout>
       <Flex flexDirection="column" alignItems="center" justifyContent="center">
-        <Table columns={columns} data={data} />
+        <Table columns={columns} data={data} refreshData={refreshData} />
       </Flex>
     </Layout>
   );
