@@ -58,11 +58,11 @@ export default function Home(props) {
           </Stat>
 
           <Stat m="25px">
-            <StatLabel fontSize="30px">Tilannekuva :D</StatLabel>
-            <StatNumber fontSize="50px">
+            <StatLabel fontSize="30px">Balance</StatLabel>
+            <StatNumber fontSize="45px">
               {notLeader} owes {leader}
             </StatNumber>
-            <StatHelpText>
+            <StatHelpText fontSize="30px">
               <StatArrow type="decrease" />
               {difference} €
             </StatHelpText>
