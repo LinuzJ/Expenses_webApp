@@ -67,9 +67,12 @@ export default function add() {
             <option value="Linus">Linus</option>
           </Select>
           <Input
+            p="10px"
             height="50px"
+            borderRadius="10px"
             type="text"
             placeholder="Description"
+            borderRadius="10px"
             name="what"
             m="10px"
             size="nm"
@@ -77,16 +80,12 @@ export default function add() {
               required: "Tell what the expense is!",
             })}
           />
-          <Text m="10px">
-            Value: {value}
-            {value !== "" && " €"}
-          </Text>
+
           <Input
             height="50px"
-            value={value}
-            onChange={handleChange}
             placeholder="Enter amount"
             type="number"
+            borderRadius="10px"
             name="amount"
             m="10px"
             size="sm"
@@ -101,7 +100,7 @@ export default function add() {
             type="submit"
             m="10px"
             rightIcon={"➞"}
-            colorScheme="teal"
+            colorScheme="gray"
             variant="outline"
           >
             Add expense

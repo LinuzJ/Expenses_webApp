@@ -33,7 +33,15 @@ const AlertMessageSuccess = (props) => {
           the button below
         </AlertDescription>
       </Alert>
-      <Button onClick={() => props.setResultOfPost("")}>Close</Button>
+      <Button
+        onClick={() => props.setResultOfPost("")}
+        m="10px"
+        rightIcon={"X"}
+        colorScheme="gray"
+        variant="outline"
+      >
+        Close
+      </Button>
     </Flex>
   );
 };

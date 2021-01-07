@@ -64,7 +64,7 @@ export default function Home(props) {
             </StatNumber>
             <StatHelpText>
               <StatArrow type="decrease" />
-              {difference}
+              {difference} €
             </StatHelpText>
           </Stat>
         </StatGroup>
