@@ -26,18 +26,20 @@ export async function getServerSideProps(context) {
 
 export default function Home(props) {
   console.log(props.data);
-  let totalExpenses = props.data.reduce((sum, pair) => sum + pair.amount, 0);
+  let totalExpenses = props.data
+    .filter((dataset) => !dataset.deleted)
+    .reduce((sum, pair) => sum + pair.amount, 0);
   let leader;
   let notLeader;
+  const calleTotal = props.data
+    .filter((dataset) => dataset.user === "Calle" && !dataset.deleted)
+    .reduce((sum, pair) => sum + pair.amount, 0);
 
-  if (
-    props.data
-      .filter((dataset) => dataset.user === "Calle")
-      .reduce((sum, pair) => sum + pair.amount, 0) <
-    props.data
-      .filter((dataset) => dataset.user === "Linus")
-      .reduce((sum, pair) => sum + pair.amount, 0)
-  ) {
+  const linusTotal = props.data
+    .filter((dataset) => dataset.user === "Linus" && !dataset.deleted)
+    .reduce((sum, pair) => sum + pair.amount, 0);
+
+  if (calleTotal < linusTotal) {
     leader = "Linus";
     notLeader = "Calle";
   } else {
@@ -45,14 +47,7 @@ export default function Home(props) {
     notLeader = "Linus";
   }
 
-  let difference = Math.abs(
-    props.data
-      .filter((dataset) => dataset.user === "Calle")
-      .reduce((sum, pair) => sum + pair.amount, 0) -
-      props.data
-        .filter((dataset) => dataset.user === "Linus")
-        .reduce((sum, pair) => sum + pair.amount, 0)
-  );
+  let difference = Math.abs(calleTotal - linusTotal);
   return (
     <Layout>
       <Flex flexDirection="column" alignItems="center" justifyContent="center">
