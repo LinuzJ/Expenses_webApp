@@ -79,6 +79,7 @@ export default function Home(props) {
         <Graph
           dataLinus={props.graphDataLinus}
           dataCalle={props.graphDataCalle}
+          leader={leader}
         ></Graph>
       </Flex>
     </Layout>
