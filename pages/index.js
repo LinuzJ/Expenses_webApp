@@ -1,7 +1,7 @@
 import FirstPost from "./list";
 import Layout from "../components/layout";
 import { Container, Box, Center, Flex } from "@chakra-ui/react";
-import Bar from "../components/bar";
+import Graph from "../components/graph";
 
 import {
   Stat,
@@ -13,19 +13,27 @@ import {
 } from "@chakra-ui/react";
 
 export async function getServerSideProps(context) {
-  const response = await fetch(
+  const response_overview = await fetch(
     "http://localhost:3000/api/overview"
   ).then((response) => response.json());
 
+  const response_Linus = await fetch(
+    "http://localhost:3000/api/graphDataLinus"
+  ).then((response) => response.json());
+
+  const response_Calle = await fetch(
+    "http://localhost:3000/api/graphDataCalle"
+  ).then((response) => response.json());
   return {
     props: {
-      data: response,
+      data: response_overview,
+      graphDataLinus: response_Linus,
+      graphDataCalle: response_Calle,
     },
   };
 }
 
 export default function Home(props) {
-  console.log(props.data);
   let totalExpenses = props.data
     .filter((dataset) => !dataset.deleted)
     .reduce((sum, pair) => sum + pair.amount, 0);
@@ -68,6 +76,10 @@ export default function Home(props) {
             </StatHelpText>
           </Stat>
         </StatGroup>
+        <Graph
+          dataLinus={props.graphDataLinus}
+          dataCalle={props.graphDataCalle}
+        ></Graph>
       </Flex>
     </Layout>
   );
