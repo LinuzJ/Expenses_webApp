@@ -80,6 +80,10 @@ export default function Home(props) {
           dataLinus={props.graphDataLinus}
           dataCalle={props.graphDataCalle}
           leader={leader}
+          border={1}
+          borderStyle="solid"
+          borderSpacing={0}
+          borderColor="#e6e6e6"
         ></Graph>
       </Flex>
     </Layout>

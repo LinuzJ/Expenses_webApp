@@ -52,7 +52,12 @@ export default function add() {
         alignContent="space-evenly"
         justifyContent="center"
         p="30px"
-        m="30px"
+        m=" 50px auto 30px"
+        background="#f2f2f2"
+        borderRadius="10px"
+        border={1}
+        borderStyle="solid"
+        width="70%"
       >
         <form onSubmit={handleSubmit(onSubmit)}>
           <Select
@@ -62,6 +67,7 @@ export default function add() {
             m="10px"
             ref={register({ required: true })}
             height="50px"
+            background="white"
           >
             <option value="Calle">Calle</option>
             <option value="Linus">Linus</option>
@@ -73,6 +79,7 @@ export default function add() {
             type="text"
             placeholder="Description"
             borderRadius="10px"
+            background="white"
             name="what"
             m="10px"
             size="nm"
@@ -92,6 +99,7 @@ export default function add() {
             ref={register({
               required: "You have to enter an amount!",
             })}
+            background="white"
           />
 
           {errors.what && <p>{errors.what.message}</p>}
@@ -102,13 +110,14 @@ export default function add() {
             rightIcon={"➞"}
             colorScheme="gray"
             variant="outline"
+            background="white"
           >
             Add expense
           </Button>
         </form>
         {resultOfPost !== "" && resultOfPost}
-        <Divider p="20px" m="20px" />
       </Flex>
+      <Divider p="20px" m="20px" />
     </Layout>
   );
 }

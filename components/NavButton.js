@@ -4,7 +4,7 @@ import { Button, ButtonGroup } from "@chakra-ui/react";
 
 const NavButton = (props) => {
   let backgroundColor =
-    props.router.pathname === props.path ? "#ffffe1" : " #ffffa3";
+    props.router.pathname === props.path ? "#E6E6FA" : " #f2f2f2";
 
   return (
     <Link href={props.path}>
