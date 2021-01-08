@@ -51,7 +51,7 @@ export default function Home(props) {
   }
 
   let difference = Math.abs(calleTotal - linusTotal);
-  console.log(props.graphData);
+
   return (
     <Layout>
       <Flex flexDirection="column" alignItems="center" justifyContent="center">
