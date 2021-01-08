@@ -10,28 +10,30 @@ import {
 } from "recharts";
 
 const Graph = (props) => {
-  const dataLinus = props.dataLinus;
-  const dataCalle = props.dataCalle;
+  const dataL = props.data.filter((dataset) => dataset.user === "Linus");
+  const dataC = props.data.filter((dataset) => dataset.user === "Calle");
   return (
-    <LineChart width={1000} height={500} margin={5}>
+    <LineChart width={1000} height={500} margin={5} data={dataL}>
       <CartesianGrid strokeDasharray="3 4" />
-      <XAxis dataKey="Time" />
-      <YAxis dataKey={props.leader} />
+      <XAxis dataKey="date" />
+      <YAxis dataKey="cumulative" />
       <Tooltip />
       <Legend />
       <Line
-        data={dataCalle}
+        data={dataL}
         type="monotone"
-        dataKey="Calle"
+        dataKey="cumulative"
         stroke="#E9967A"
         activeDot={{ r: 10 }}
+        connectNulls
       />
       <Line
-        data={dataLinus}
+        data={dataC}
         type="monotone"
-        dataKey="Linus"
+        dataKey="cumulative"
         stroke="#8FBC8F"
         activeDot={{ r: 10 }}
+        connectNulls
       />
     </LineChart>
   );

@@ -61,7 +61,7 @@ export default function add() {
       >
         <form onSubmit={handleSubmit(onSubmit)}>
           <Select
-            placeholder="Select payer"
+            placeholder="Select person"
             type="text"
             name="user"
             m="10px"

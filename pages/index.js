@@ -17,22 +17,17 @@ export async function getServerSideProps(context) {
     "http://localhost:3000/api/overview"
   ).then((response) => response.json());
 
-  const response_Linus = await fetch(
-    "http://localhost:3000/api/graphDataLinus"
+  const response_graph = await fetch(
+    "http://localhost:3000/api/graphData"
   ).then((response) => response.json());
 
-  const response_Calle = await fetch(
-    "http://localhost:3000/api/graphDataCalle"
-  ).then((response) => response.json());
   return {
     props: {
       data: response_overview,
-      graphDataLinus: response_Linus,
-      graphDataCalle: response_Calle,
+      graphData: response_graph,
     },
   };
 }
-
 export default function Home(props) {
   let totalExpenses = props.data
     .filter((dataset) => !dataset.deleted)
@@ -56,6 +51,7 @@ export default function Home(props) {
   }
 
   let difference = Math.abs(calleTotal - linusTotal);
+  console.log(props.graphData);
   return (
     <Layout>
       <Flex flexDirection="column" alignItems="center" justifyContent="center">
@@ -77,9 +73,7 @@ export default function Home(props) {
           </Stat>
         </StatGroup>
         <Graph
-          dataLinus={props.graphDataLinus}
-          dataCalle={props.graphDataCalle}
-          leader={leader}
+          data={props.graphData}
           border={1}
           borderStyle="solid"
           borderSpacing={0}
