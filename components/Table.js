@@ -19,7 +19,6 @@ export default function Table(props) {
     },
     useSortBy
   );
-  const firstPageRows = rows.slice(0, 100);
 
   return (
     <>
@@ -76,7 +75,7 @@ export default function Table(props) {
           ))}
         </Box>
         <Box as="tbody" {...getTableBodyProps()}>
-          {firstPageRows.map((row, i) => {
+          {rows.map((row, i) => {
             prepareRow(row);
             return (
               <Box as="tr" {...row.getRowProps()}>
@@ -113,7 +112,7 @@ export default function Table(props) {
           })}
         </Box>
       </Box>
-      <Box>Showing the first 100 results of {rows.length} rows</Box>
+      <Box>Showing {rows.length} rows</Box>
     </>
   );
 }
