@@ -30,6 +30,7 @@ export default async function handler(req, res) {
   let difference = Math.abs(calleTotal - linusTotal);
 
   const exportData = {
+    overview: overview,
     totalExpenses: totalExpenses,
     calleTotal: calleTotal,
     linusTotal: linusTotal,

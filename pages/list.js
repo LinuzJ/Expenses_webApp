@@ -23,7 +23,7 @@ export default function list(props) {
     router.replace(router.asPath);
   };
 
-  const data = props.data.filter((dataset) => !dataset.deleted);
+  const data = props.data.overview.filter((dataset) => !dataset.deleted);
 
   const columns = [
     {
