@@ -55,7 +55,17 @@ export default function Home(props) {
   return (
     <Layout>
       <Flex flexDirection="column" alignItems="center" justifyContent="center">
-        <StatGroup>
+        <StatGroup
+          display="flex"
+          m="20px auto 20px "
+          background="#f2f2f2"
+          borderRadius="10px"
+          border={1}
+          borderStyle="solid"
+          flexDirection="row"
+          alignItems="center"
+          justifyContent="center"
+        >
           <Stat m="25px">
             <StatLabel fontSize="40px">Total Expenses</StatLabel>
             <StatNumber fontSize="150px">{totalExpenses}€</StatNumber>
