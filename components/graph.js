@@ -10,6 +10,7 @@ import {
 } from "recharts";
 
 const Graph = (props) => {
+  console.log(props.data);
   return (
     <LineChart width={1000} height={500} margin={5} data={props.data}>
       <CartesianGrid strokeDasharray="3 4" />
@@ -19,14 +20,14 @@ const Graph = (props) => {
       <Legend />
       <Line
         type="monotone"
-        dataKey="cumulativeLinus"
+        dataKey="Linus"
         stroke="#E9967A"
         activeDot={{ r: 10 }}
         connectNulls
       />
       <Line
         type="monotone"
-        dataKey="cumulativeCalle"
+        dataKey="Calle"
         stroke="#8FBC8F"
         activeDot={{ r: 10 }}
         connectNulls

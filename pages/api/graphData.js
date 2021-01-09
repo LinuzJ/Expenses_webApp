@@ -1,3 +1,4 @@
+import { allowedStatusCodes } from "next/dist/lib/load-custom-routes";
 import { open } from "sqlite";
 import sqlite3 from "sqlite3";
 
@@ -18,25 +19,35 @@ export default async function handler(req, res) {
         ],
     };
   });
-  const dataL = nameChange.filter((dataset) => dataset.user === "Linus");
-  const dataC = nameChange.filter((dataset) => dataset.user === "Calle");
-  const dataset = new Array();
-
-  var rowLinus;
-  var rowCalle;
-
-  for (rowLinus in dataL) {
-    for (rowCalle in dataC) {
-      if (dataC[rowCalle].date === dataL[rowLinus].date) {
-        dataset.push({
-          date: dataL[rowLinus].date,
-          cumulativeLinus: dataL[rowLinus].cumulative,
-          cumulativeCalle: dataC[rowCalle].cumulative,
-        });
-        break;
-      }
+  const datasetOther = {};
+  const dataA = [];
+  var x;
+  var row;
+  for (row of nameChange) {
+    if (!(row.date in datasetOther)) {
+      datasetOther[row.date] = {};
+    }
+    if (row.user === "Calle") {
+      datasetOther[row.date] = {
+        ...datasetOther[row.date],
+        Calle: row.cumulative,
+      };
+    } else {
+      datasetOther[row.date] = {
+        ...datasetOther[row.date],
+        Linus: row.cumulative,
+      };
     }
   }
-  console.log(dataset);
-  res.json(dataset);
+
+  const keys = Object.keys(datasetOther);
+  const values = Object.values(datasetOther);
+  for (x in values) {
+    dataA.push(values[x]);
+    dataA[x] = {
+      ...dataA[x],
+      date: keys[x],
+    };
+  }
+  res.json(dataA);
 }
