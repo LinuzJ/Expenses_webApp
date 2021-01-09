@@ -29,29 +29,6 @@ export async function getServerSideProps(context) {
   };
 }
 export default function Home(props) {
-  let totalExpenses = props.data
-    .filter((dataset) => !dataset.deleted)
-    .reduce((sum, pair) => sum + pair.amount, 0);
-  let leader;
-  let notLeader;
-  const calleTotal = props.data
-    .filter((dataset) => dataset.user === "Calle" && !dataset.deleted)
-    .reduce((sum, pair) => sum + pair.amount, 0);
-
-  const linusTotal = props.data
-    .filter((dataset) => dataset.user === "Linus" && !dataset.deleted)
-    .reduce((sum, pair) => sum + pair.amount, 0);
-
-  if (calleTotal < linusTotal) {
-    leader = "Linus";
-    notLeader = "Calle";
-  } else {
-    leader = "Calle";
-    notLeader = "Linus";
-  }
-
-  let difference = Math.abs(calleTotal - linusTotal);
-
   return (
     <Layout>
       <Flex flexDirection="column" alignItems="center" justifyContent="center">
@@ -68,17 +45,19 @@ export default function Home(props) {
         >
           <Stat m="25px">
             <StatLabel fontSize="40px">Total Expenses</StatLabel>
-            <StatNumber fontSize="150px">{totalExpenses}€</StatNumber>
+            <StatNumber fontSize="150px">
+              {props.data.totalExpenses}€
+            </StatNumber>
           </Stat>
 
           <Stat m="25px">
             <StatLabel fontSize="30px">Balance</StatLabel>
             <StatNumber fontSize="45px">
-              {notLeader} owes {leader}
+              {props.data.notLeader} owes {props.data.leader}
             </StatNumber>
             <StatHelpText fontSize="30px">
               <StatArrow type="decrease" />
-              {difference} €
+              {props.data.difference} €
             </StatHelpText>
           </Stat>
         </StatGroup>
