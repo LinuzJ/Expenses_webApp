@@ -18,6 +18,25 @@ export default async function handler(req, res) {
         ],
     };
   });
-  console.log(nameChange);
-  res.json(nameChange);
+  const dataL = nameChange.filter((dataset) => dataset.user === "Linus");
+  const dataC = nameChange.filter((dataset) => dataset.user === "Calle");
+  const dataset = new Array();
+
+  var rowLinus;
+  var rowCalle;
+
+  for (rowLinus in dataL) {
+    for (rowCalle in dataC) {
+      if (dataC[rowCalle].date === dataL[rowLinus].date) {
+        dataset.push({
+          date: dataL[rowLinus].date,
+          cumulativeLinus: dataL[rowLinus].cumulative,
+          cumulativeCalle: dataC[rowCalle].cumulative,
+        });
+        break;
+      }
+    }
+  }
+  console.log(dataset);
+  res.json(dataset);
 }

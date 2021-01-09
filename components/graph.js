@@ -10,27 +10,23 @@ import {
 } from "recharts";
 
 const Graph = (props) => {
-  const dataL = props.data.filter((dataset) => dataset.user === "Linus");
-  const dataC = props.data.filter((dataset) => dataset.user === "Calle");
   return (
-    <LineChart width={1000} height={500} margin={5} data={dataL}>
+    <LineChart width={1000} height={500} margin={5} data={props.data}>
       <CartesianGrid strokeDasharray="3 4" />
       <XAxis dataKey="date" />
-      <YAxis dataKey="cumulative" />
+      <YAxis />
       <Tooltip />
       <Legend />
       <Line
-        data={dataL}
         type="monotone"
-        dataKey="cumulative"
+        dataKey="cumulativeLinus"
         stroke="#E9967A"
         activeDot={{ r: 10 }}
         connectNulls
       />
       <Line
-        data={dataC}
         type="monotone"
-        dataKey="cumulative"
+        dataKey="cumulativeCalle"
         stroke="#8FBC8F"
         activeDot={{ r: 10 }}
         connectNulls
