@@ -12,6 +12,7 @@ The web application adds the data of the expenses to a database and visualizes t
 - [React](https://reactjs.org/)
 - [Node.js](https://nodejs.org/en/)
 - [Sqlite3](https://www.sqlite.org/index.html)
+- [Next.js](https://nextjs.org/)
 
 <!-- EXAMPLES -->
 
@@ -23,7 +24,6 @@ The web application adds the data of the expenses to a database and visualizes t
 - Visualize the data in a table
 - Ability to sort and delete the data in the table
 - Graph visualizing the data over time on the home page
-- Change the users in users.js
 
 <!-- GETTING STARTED -->
 
@@ -35,9 +35,6 @@ To get a local copy up and running follow these simple steps. Make sure you have
 
 - Node.js
 - npm
-  ```sh
-  npm install npm@latest -g
-  ```
 
 ### Installation
 
