@@ -11,7 +11,7 @@ import {
 
 const Graph = (props) => {
   return (
-    <LineChart width={1000} height={500} margin={5} data={props.data}>
+    <LineChart width={1200} height={500} margin={5} data={props.data}>
       <CartesianGrid strokeDasharray="3 4" />
       <XAxis dataKey="date" />
       <YAxis />
