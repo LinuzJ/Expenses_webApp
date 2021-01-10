@@ -87,6 +87,7 @@ export default function Table(props) {
                       borderBottom={1}
                       borderBottomStyle="solid"
                       borderColor="#e6e6e6"
+                      key={i}
                     >
                       {cell.value}
                     </Box>

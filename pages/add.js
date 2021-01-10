@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import AlertMessageSuccess from "../components/AlertMessage";
 import AlertMessageFail from "../components/AlertMessageFail";
+import users from "../config/users";
 
 export default function add() {
   const { register, handleSubmit, errors } = useForm();
@@ -58,8 +59,13 @@ export default function add() {
             height="50px"
             background="white"
           >
-            <option value="User1">User1</option>
-            <option value="User2">User2</option>
+            {users.map((user, i) => {
+              return (
+                <option value={user} key={i}>
+                  {user}
+                </option>
+              );
+            })}
           </Select>
           <Input
             p="10px"

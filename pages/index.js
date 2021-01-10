@@ -52,7 +52,8 @@ export default function Home(props) {
           <Stat m="25px">
             <StatLabel fontSize="35px">Balance</StatLabel>
             <StatNumber fontSize="45px">
-              {props.data.notLeader} owes {props.data.leader}
+              {props.data.users[props.data.leaderIndex]} owes{" "}
+              {props.data.users[(props.data.leaderIndex + 1) % 2]}
             </StatNumber>
             <StatHelpText fontSize="30px">
               <StatArrow type="decrease" />
@@ -62,6 +63,7 @@ export default function Home(props) {
         </StatGroup>
         <Graph
           data={props.graphData}
+          users={props.data.users}
           border={1}
           borderStyle="solid"
           borderSpacing={0}

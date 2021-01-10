@@ -1,7 +1,3 @@
-// config/buttons.js
-
-import React from "react";
-
 const navButtons = [
   {
     label: "Home",
