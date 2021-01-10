@@ -1,16 +1,5 @@
-import Link from "next/link";
 import Layout from "../components/layout";
-import {
-  Flex,
-  Container,
-  Box,
-  Button,
-  Input,
-  Stack,
-  Select,
-  Divider,
-  Text,
-} from "@chakra-ui/react";
+import { Flex, Button, Input, Select, Divider } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import AlertMessageSuccess from "../components/AlertMessage";

@@ -1,4 +1,3 @@
-// components/NavBar.js
 import NavButton from "./NavButton";
 
 const NavBar = (props) => (

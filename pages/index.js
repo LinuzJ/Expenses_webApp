@@ -1,6 +1,5 @@
-import FirstPost from "./list";
 import Layout from "../components/layout";
-import { Container, Box, Center, Flex } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import Graph from "../components/graph";
 
 import {
@@ -51,7 +50,7 @@ export default function Home(props) {
           </Stat>
 
           <Stat m="25px">
-            <StatLabel fontSize="30px">Balance</StatLabel>
+            <StatLabel fontSize="35px">Balance</StatLabel>
             <StatNumber fontSize="45px">
               {props.data.notLeader} owes {props.data.leader}
             </StatNumber>

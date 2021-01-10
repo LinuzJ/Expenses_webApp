@@ -1,9 +1,8 @@
-import Link from "next/link";
 import Layout from "../components/layout";
 import Table from "../components/Table";
-import { Flex, Container, Box } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import { useTable } from "react-table";
+
 export async function getServerSideProps(context) {
   const response = await fetch(
     "http://localhost:3000/api/overview"

@@ -1,8 +1,7 @@
 import React from "react";
 import DeleteButton from "../components/deleteButton";
 import { useTable, useSortBy } from "react-table";
-import { Box, ChakraProvider, CSSReset, CloseButton } from "@chakra-ui/react";
-import theme from "@chakra-ui/theme";
+import { Box } from "@chakra-ui/react";
 
 export default function Table(props) {
   const { columns, data } = props;

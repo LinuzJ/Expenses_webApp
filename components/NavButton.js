@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { withRouter } from "next/router";
-import { Button, ButtonGroup } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 
 const NavButton = (props) => {
   let backgroundColor =
