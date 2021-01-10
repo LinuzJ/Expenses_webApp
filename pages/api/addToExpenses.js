@@ -10,7 +10,6 @@ export default async function handler(req, res) {
   const db = await open({ filename: "expenses.db", driver: sqlite3.Database });
   await db.run(
     `INSERT INTO expenses (user, what, amount, deleted) VALUES("${user}", "${description}", ${amount}, ${isDeleted})`
-    // (user, desription, amount, isDeleted)
   );
   res.end();
 }

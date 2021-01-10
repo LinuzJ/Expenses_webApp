@@ -9,31 +9,31 @@ export default async function handler(req, res) {
     .filter((dataset) => !dataset.deleted)
     .reduce((overview, pair) => overview + pair.amount, 0);
 
-  const calleTotal = overview
-    .filter((dataset) => dataset.user === "Calle" && !dataset.deleted)
+  const User2Total = overview
+    .filter((dataset) => dataset.user === "User2" && !dataset.deleted)
     .reduce((overview, pair) => overview + pair.amount, 0);
 
-  const linusTotal = overview
-    .filter((dataset) => dataset.user === "Linus" && !dataset.deleted)
+  const User1Total = overview
+    .filter((dataset) => dataset.user === "User1" && !dataset.deleted)
     .reduce((overview, pair) => overview + pair.amount, 0);
 
   let leader;
   let notLeader;
-  if (calleTotal < linusTotal) {
-    leader = "Linus";
-    notLeader = "Calle";
+  if (User2Total < User1Total) {
+    leader = "User1";
+    notLeader = "User2";
   } else {
-    leader = "Calle";
-    notLeader = "Linus";
+    leader = "User2";
+    notLeader = "User1";
   }
 
-  let difference = Math.abs(calleTotal - linusTotal);
+  let difference = Math.abs(User2Total - User1Total);
 
   const exportData = {
     overview: overview,
     totalExpenses: totalExpenses,
-    calleTotal: calleTotal,
-    linusTotal: linusTotal,
+    User2Total: User2Total,
+    User1Total: User1Total,
     leader: leader,
     notLeader: notLeader,
     difference: difference,

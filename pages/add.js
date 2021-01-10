@@ -69,8 +69,8 @@ export default function add() {
             height="50px"
             background="white"
           >
-            <option value="Calle">Calle</option>
-            <option value="Linus">Linus</option>
+            <option value="User1">User1</option>
+            <option value="User2">User2</option>
           </Select>
           <Input
             p="10px"

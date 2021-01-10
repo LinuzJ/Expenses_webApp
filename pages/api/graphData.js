@@ -27,15 +27,15 @@ export default async function handler(req, res) {
     if (!(row.date in datasetOther)) {
       datasetOther[row.date] = {};
     }
-    if (row.user === "Calle") {
+    if (row.user === "User2") {
       datasetOther[row.date] = {
         ...datasetOther[row.date],
-        Calle: row.cumulative,
+        User2: row.cumulative,
       };
     } else {
       datasetOther[row.date] = {
         ...datasetOther[row.date],
-        Linus: row.cumulative,
+        User1: row.cumulative,
       };
     }
   }
