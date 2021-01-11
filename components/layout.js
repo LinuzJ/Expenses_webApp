@@ -1,6 +1,6 @@
 // components/Layout.js
 
-import NavBar from "./NavBar";
+import NavBar from "./navBar";
 import Flex from "@chakra-ui/react";
 import navButtons from "../config/buttons";
 

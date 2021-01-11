@@ -1,5 +1,5 @@
 import Layout from "../components/layout";
-import Table from "../components/Table";
+import Table from "../components/table";
 import { Flex } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 

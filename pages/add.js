@@ -2,8 +2,8 @@ import Layout from "../components/layout";
 import { Flex, Button, Input, Select, Divider } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import AlertMessageSuccess from "../components/AlertMessage";
-import AlertMessageFail from "../components/AlertMessageFail";
+import AlertMessageSuccess from "../components/alertMessage";
+import AlertMessageFail from "../components/alertMessageFail";
 import users from "../config/users";
 
 export default function add() {

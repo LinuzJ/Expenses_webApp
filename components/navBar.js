@@ -1,4 +1,4 @@
-import NavButton from "./NavButton";
+import NavButton from "./navButton";
 
 const NavBar = (props) => (
   <div
