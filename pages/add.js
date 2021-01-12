@@ -10,7 +10,6 @@ export default function add() {
   const { register, handleSubmit, errors } = useForm();
 
   const [value, setValue] = useState("");
-  const handleChange = (event) => setValue(event.target.value);
 
   const onSubmit = (data) => {
     fetch("http://localhost:3000/api/addToExpenses", {

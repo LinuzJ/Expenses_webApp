@@ -10,7 +10,6 @@ import {
 } from "recharts";
 
 const Graph = (props) => {
-  console.log(props.data);
   return (
     <LineChart width={1200} height={500} margin={5} data={props.data}>
       <CartesianGrid strokeDasharray="3 4" />
