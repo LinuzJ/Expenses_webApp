@@ -18,6 +18,12 @@ The web application adds the data of the expenses to a database and visualizes t
 
 ## Examples
 
+Adding an expense
+![](gif1.gif)
+
+Table functionality
+![](gif1.gif)
+
 #### Functionality
 
 - Add expenses into the database (user, what, amount, when)
