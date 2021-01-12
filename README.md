@@ -24,7 +24,7 @@ The web application adds the data of the expenses to a database and visualizes t
 
 **Table functionality**
 
-![](gif1.gif)
+![](gif2.gif)
 
 #### Functionality
 
