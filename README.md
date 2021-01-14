@@ -10,7 +10,6 @@ The web application adds the data of the expenses to a database and visualizes t
 
 - [Javascript](https://www.javascript.com/)
 - [React](https://reactjs.org/)
-- [Node.js](https://nodejs.org/en/)
 - [Sqlite3](https://www.sqlite.org/index.html)
 - [Next.js](https://nextjs.org/)
 
