@@ -57,7 +57,7 @@ To install and run locally please follow these steps
    ```
 3. Create the database
    ```sh
-   sqlite3 expenses.db <schema.sql
+   sqlite3 expenses.db < schema.sql
    ```
 4. Start it up!
    ```sh
